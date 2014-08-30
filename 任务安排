@@ -1,0 +1,25 @@
+
+任务安排
+
+刘家强：
+  1. 道具类即函数的实现    BaseProp <-- Prop1, Prop2
+  2. 碰撞检测的实现        CollisionDelegate  <-- GameScene
+  3. 子弹的实现            Bullet
+  
+张钟彬：
+  1. 坦克基类的编写        BaseTank
+  2. 敌机坦克基类的编写    EnemyTank
+  3. 敌机坦克子类的编写    EnemyTank1,2,3,4
+  4. 主机坦克的编写        MainTank
+  5. 敌机层的编写          EnemyTankLayer
+  
+张庆利：
+  1. 编写开始场景          StartScene
+  2. 编写结束场景          GameOverScene
+  3. 编写砖块类            Brick, HomeBrick
+  4. 编写老窝类            Home
+
+丁俊康：
+  1. 地图层                MapLayer
+  2. 摇杆层                JoystickLayer
+  3. 游戏场景              GameScene
