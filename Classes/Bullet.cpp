@@ -1,11 +1,11 @@
-#include "BaseBullet.h"
+#include "Bullet.h"
 
 
-BaseBullet::BaseBullet(void)
+Bullet::Bullet(void)
 {
 }
 
 
-BaseBullet::~BaseBullet(void)
+Bullet::~Bullet(void)
 {
 }

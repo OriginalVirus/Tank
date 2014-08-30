@@ -10,6 +10,7 @@ class MapLayer :
 public:
 	MapLayer(void);
 	virtual ~MapLayer(void);
+	CREATE_FUNC(MapLayer);
 public:
 	void removeBrick(Brick *);
 	Vector<Brick *> getAllBricks();

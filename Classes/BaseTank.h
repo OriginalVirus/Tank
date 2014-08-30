@@ -1,7 +1,7 @@
 #pragma once
-#include "cocos2d.h"
-using namespace cocos2d;
 
+#include "cocos2d.h"
+USING_NS_CC;
 
 class BaseTank :
 	public Sprite
@@ -24,7 +24,7 @@ public:
 	Action* _idleAction;	// kongxian donghua
 public:
 	void idle();
-	void move();
+	void move(float dt);
 	void fire();
 	void hurtWithDemage(int demage);
 	void die();

@@ -1,11 +1,11 @@
-#include "BaseBrick.h"
+#include "Brick.h"
 
 
-BaseBrick::BaseBrick(void)
+Brick::Brick(void)
 {
 }
 
 
-BaseBrick::~BaseBrick(void)
+Brick::~Brick(void)
 {
 }
