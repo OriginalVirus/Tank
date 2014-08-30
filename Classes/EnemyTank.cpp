@@ -1,11 +1,22 @@
 #include "EnemyTank.h"
-
-
-EnemyTank::EnemyTank(void)
-{
+#include "Bullet.h"
+#include "GameScene.h"
+#include "BaseTank.h"
+bool EnemyTank::init(){
+	if (!BaseTank::init())
+	{
+		return false;
+	}
+	this->schedule(schedule_selector(EnemyTank::fire),2);
+	return true;
+	
+	
 }
-
-
-EnemyTank::~EnemyTank(void)
-{
+void EnemyTank::ai(float dt){
+	
+}
+void EnemyTank::fire(float t){
+	auto bullet = Bullet::create();
+	auto scene = GameScene::getInstance();
+	scene->_enemyTankLayer->addChild(bullet);
 }

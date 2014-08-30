@@ -3,14 +3,13 @@
 
 #define EnemyMaxCount 20;
 
-class EnemyTank :
-	public BaseTank
+class EnemyTank :public BaseTank
 {
 public:
-	EnemyTank(void);
-	virtual ~EnemyTank(void);
-public:
+	virtual bool init();
+	CREATE_FUNC(EnemyTank);
 	void ai(float dt);
+	virtual void fire(float t);
 private:
 	int _count;
 };

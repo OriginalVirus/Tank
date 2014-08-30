@@ -1,7 +1,5 @@
 #include "GameScene.h"
 
-GameScene* GameScene::_instance = NULL;
-
 GameScene::GameScene() {
 	srand(time(0));
 }
@@ -31,21 +29,4 @@ bool GameScene::init(void) {
 	_enemyBulletsLayer = Layer::create();
 	_enemyBulletsLayer->retain();
 	this->addChild(_enemyBulletsLayer);
-
-	_propsLayer = Layer::create();
-	_propsLayer->retain();
-	this->addChild(_propsLayer);
-
-	_joystickLayer = JoystickLayer::create(_mainTank);
-	_joystickLayer->retain();
-	this->addChild(_joystickLayer);
-	
-	return true;
-}
-
-GameScene* GameScene::getInstance() {
-	if (_instance == NULL) {
-		_instance = GameScene::create();
-	}
-	return _instance;
 }

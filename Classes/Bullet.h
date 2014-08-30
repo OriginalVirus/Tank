@@ -4,8 +4,8 @@
 USING_NS_CC;
 
 typedef enum {
-	NORMAL_BULLET = 0,
-	GOLD_BULLET	// gold bullet
+	NORMAL = 0,
+	GOLD	// gold bullet
 } BulletType;
 
 class Bullet :
