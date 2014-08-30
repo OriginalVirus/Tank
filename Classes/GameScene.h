@@ -23,5 +23,6 @@ public:
 private:
 	static GameScene * _instance;
 	CREATE_FUNC(GameScene);
+	GameScene();
 };
 

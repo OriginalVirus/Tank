@@ -22,6 +22,5 @@ public:
 public:
 	void die();
 	void move();
-	void removeFromMap(MapLayer *);
 };
 

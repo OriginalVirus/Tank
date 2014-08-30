@@ -1,5 +1,6 @@
 #pragma once
 #include "cocos2d.h"
+#include "MapLayer.h"
 USING_NS_CC;
 
 typedef enum {
@@ -13,15 +14,16 @@ typedef enum {
 	BIG
 } BrickSize;
 
-class Brick :
-	public Sprite
-{
+class Brick : public Ref {
 public:
-	Brick(void);
+	Brick(BrickType type, Vec2 tilePoint, Sprite* tile);
 	virtual ~Brick(void);
 public:
 	BrickType _type;
-	int _hp;
 	BrickSize _size;
+	Vec2 _tilePoint;
+	Sprite* _tile;
+public:
+	void removeFromMap(MapLayer *);
 };
 

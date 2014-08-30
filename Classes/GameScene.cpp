@@ -2,6 +2,10 @@
 
 GameScene* GameScene::_instance = NULL;
 
+GameScene::GameScene() {
+	srand(time(0));
+}
+
 GameScene::~GameScene() {
 
 };

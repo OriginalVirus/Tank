@@ -2,9 +2,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class BaseProp :
-	public Sprite
-{
+class BaseProp : public Sprite {
 public:
 	BaseProp(void);
 	virtual ~BaseProp(void);
