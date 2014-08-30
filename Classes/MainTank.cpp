@@ -1,36 +1,20 @@
 #include "MainTank.h"
 #include "Bullet.h"
-
+#include "GameScene.h"
 bool MainTank::init(){
-	if (!Sprite::initWithFile(""))
+	if (!Sprite::initWithFile("p2tankU.png"))
 	{
 		return false;
 	}
-    isDie(false);
 	_hp = 1;
 	_speed = 50;
 	_current_life = 4;
 
 	return true;
 }
-void MainTank::move(float t){
-	this->setPosition(this->getPosition() + _direction * t * _speed);
-}
-void MainTank::fire(){
+void MainTank::fire(float t){
 	auto bullet = Bullet::create();
-	//添加到我方子弹层
-	auto pDirector = Director::getInstance()->getRunningScene();
+	auto scene = GameScene::getInstance();
+	scene->_mainBulletsLayer->addChild(bullet);
 
-}
-void MainTank::hurtWithDemage(int demage){
-	this->_hp -= demage;
-	if (_hp < 0)
-	{
-		_hp = 0;
-	}
-	
-}
-void MainTank::die(){
-	this->removeFromParentAndCleanup(true);
-	//在主坦克与敌坦克子弹碰撞时判断生命还有多少；
 }
