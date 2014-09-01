@@ -76,7 +76,11 @@ void CollisionDelegate::detectOfEnemiesAndOurBullets(Vector<EnemyTank *> enemies
 	 {
 		 for ( auto bri = bricks.begin();bri != bricks.end();bri ++)
 		 {
-        // 敌机转向
+		 	// 碰撞检测
+		 	if (*bul->getBoundingBox().intersectsRect(*bri->getBoundingBox())) {
+        			// 敌机转向
+        			*bri->ai();
+        		}
 		 }
 	 }
  }
