@@ -26,4 +26,3 @@ public:
 public:
 	void removeFromMap(MapLayer *);
 };
-
