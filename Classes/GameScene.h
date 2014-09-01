@@ -2,21 +2,23 @@
 #include "cocos2d.h"
 #include "MapLayer.h"
 #include "EnemyTankLayer.h"
+#include "JoystickLayer.h"
 USING_NS_CC;
 
-class GameScene :
-	public Scene
-{
+class GameScene : public Scene {
 public:
-	GameScene(void);
-	virtual ~GameScene(void);
+	bool init();
+	~GameScene();
 public:
-	MapLayer * _mapLayer;		// µØÍ¼²ã
-	Layer * _mainBulletsLayer;			// Ö÷»úµÄ×Óµ¯²ã
-	EnemyTankLayer * _enemyTankLayer;	// µĞ»ú²ã
-	Layer * _enemyBulletsLayer;			// µĞ»úµÄ×Óµ¯²ã
-	Layer * _propsLayer;		// µÀ¾ß²ã
-	
+	MainTank * _mainTank;
+
+	MapLayer * _mapLayer;		// åœ°å›¾å±‚
+	Layer * _mainBulletsLayer;			// ä¸»æœºçš„å­å¼¹å±‚
+	EnemyTankLayer * _enemyTankLayer;	// æ•Œæœºå±‚
+	Layer * _enemyBulletsLayer;			// æ•Œæœºçš„å­å¼¹å±‚
+	Layer * _propsLayer;		// é“å…·å±‚
+	JoystickLayer * _joystickLayer;		// æ‘‡æ†å±‚
+
 	static GameScene* getInstance();
 private:
 	static GameScene * _instance;
