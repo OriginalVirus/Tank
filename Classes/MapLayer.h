@@ -22,4 +22,3 @@ private:
 	TMXTiledMap* _map;
 	TMXLayer* _brickLayer;
 };
-
