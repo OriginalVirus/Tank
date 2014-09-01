@@ -2,11 +2,10 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class BaseProp : public Sprite {
+class BaseProp :public Sprite {
+protected :
+	virtual Vec2 randomPosition();
+	virtual bool initWithFile(std::string name );
 public:
-	BaseProp(void);
-	virtual ~BaseProp(void);
-public:
-	virtual void effect(Ref*) = 0;		// ³Ôµ½µÀ¾ßºó²úÉúĞ§¹û
+	virtual void effect(Ref*sender)= 0;// åƒåˆ°é“å…·åäº§ç”Ÿæ•ˆæœ
 };
-
