@@ -47,3 +47,4 @@ void MapLayer::removeBrick(Brick * brick) {
 	_bricks.eraseObject(brick);
 	_brickLayer->removeTileAt(brick->_tilePoint);
 }
+
