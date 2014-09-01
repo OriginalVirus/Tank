@@ -7,25 +7,25 @@
 #include "Brick.h"
 USING_NS_CC;
 
-class CollisionDelegate		// Åö×²¼ì²âµÄ´úÀíÀà
+class CollisionDelegate		// ç¢°æ’æ£€æµ‹çš„ä»£ç†ç±»
 {
 public:
-	// µĞ»úÓëÎÒ·½×Óµ¯
-	virtual void detectOfEnemiesAndOurBullets(Vector<EnemyTank *> enemies, Vector<Bullet *> ourBullets) = 0;
+	// æ•Œæœºä¸æˆ‘æ–¹å­å¼¹
+	virtual void detectOfEnemiesAndOurBullets(Vector<EnemyTank *> enemies, Vector<Bullet *> ourBullets) ;
 	
-	// Ö÷»úÓëµĞ·½×Óµ¯
-	virtual void detectOfMainAndEnemyBullets(MainTank * mainTank, Vector<Bullet *> enemyBullets) = 0;
+	// ä¸»æœºä¸æ•Œæ–¹å­å¼¹
+	virtual void detectOfMainAndEnemyBullets(Vector <MainTank *>mainTank, Vector<Bullet *> enemyBullets) ;
 
-	// Ö÷»ú×Óµ¯ºÍµĞ»ú×Óµ¯
-	virtual void detectOfEnemyBulletsAndOurBullets(Vector<Bullet *> enemyBullets, Vector<Bullet *> ourBullets) = 0;
+	// ä¸»æœºå­å¼¹å’Œæ•Œæœºå­å¼¹
+	virtual void detectOfEnemyBulletsAndOurBullets(Vector<Bullet *> enemyBullets, Vector<Bullet *> ourBullets);
 
-	// Ö÷»ú×Óµ¯ºÍ×©
-	virtual void detectOfOurBulletsAndBricks(Vector<Bullet *> ourBullets, Vector<Brick *> bricks) = 0;
+	// ä¸»æœºå­å¼¹å’Œç –
+	virtual void detectOfOurBulletsAndBricks(Vector<Bullet *> ourBullets, Vector<Brick *> bricks);
 
-	// µĞ·½×Óµ¯ºÍ×©
-	virtual void detectOfEnemiesAndOurBullets(Vector<Bullet *> enemyBullets, Vector<Brick *> bricks) = 0;
+	// æ•Œæ–¹å­å¼¹å’Œç –
+	virtual void detectOfEnemiesAndOurBullets(Vector<Bullet *> enemyBullets, Vector<Brick *> bricks);
 
-	// µĞ»úÓë×©µÄÅö×²
-	virtual void detectOfEnemiesWithBricks(Vector<EnemyTank*> enemies, Vector<Brick *> bricks) = 0;
+	// æ•Œæœºä¸ç –çš„ç¢°æ’
+	virtual void detectOfEnemiesWithBricks(Vector<EnemyTank*> enemies, Vector<Brick *> bricks);
 };
 
