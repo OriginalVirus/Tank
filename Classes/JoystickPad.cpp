@@ -27,14 +27,14 @@ bool JoystickPad::initWithFile(const std::string& filename, float padRadius) {
 
 	this->_radius = padRadius;
 	this->_directionVector = Vect::ZERO;	// (0 , 0)
-	this->_isTouching = false;	// ³õÊ¼Ã»´¥Ãş
-	this->scheduleUpdate();			// ¸ù¾İ´¥ÃşĞŞ¸ÄÖ÷»úµÄ·½ÏòÏòÁ¿
+	this->_isTouching = false;	// åˆå§‹æ²¡è§¦æ‘¸
+	this->scheduleUpdate();			// æ ¹æ®è§¦æ‘¸ä¿®æ”¹ä¸»æœºçš„æ–¹å‘å‘é‡
 
 	return true;
 }
 
-// ×¢²á´¥ÃşÊÂ¼ş¼àÌıÆ÷
-// ÔÚ¹ı¶ÉĞ§¹ûÍê³Éºóµ÷ÓÃ£¬±ÜÃâ¶¯»­Ğ§¹û»¹Ã»½áÊø¾ÍÄÜ²Ù×÷Ò¡¸Ë
+// æ³¨å†Œè§¦æ‘¸äº‹ä»¶ç›‘å¬å™¨
+// åœ¨è¿‡æ¸¡æ•ˆæœå®Œæˆåè°ƒç”¨ï¼Œé¿å…åŠ¨ç”»æ•ˆæœè¿˜æ²¡ç»“æŸå°±èƒ½æ“ä½œæ‘‡æ†
 void JoystickPad::onEnterTransitionDidFinish() {
 	_listener = EventListenerTouchOneByOne::create();
 	_listener->onTouchBegan = bind(&JoystickPad::touchBegin, this, _1, _2);
@@ -43,59 +43,58 @@ void JoystickPad::onEnterTransitionDidFinish() {
 	Director::getInstance()->getEventDispatcher()
 		->addEventListenerWithSceneGraphPriority(_listener, this);
 
-	Sprite::onEnterTransitionDidFinish();	// µ÷ÓÃ¸¸Àà
+	Sprite::onEnterTransitionDidFinish();	// è°ƒç”¨çˆ¶ç±»
 }
 
-// ÔÚÍË³öµ±Ç°²ãµÄÊ±ºò×¢Ïú´¥Ãş¼àÌıÆ÷£¬±ÜÃâ³öÏÖ´íÎó
+// åœ¨é€€å‡ºå½“å‰å±‚çš„æ—¶å€™æ³¨é”€è§¦æ‘¸ç›‘å¬å™¨ï¼Œé¿å…å‡ºç°é”™è¯¯
 void JoystickPad::onExit() {
 	Director::getInstance()->getEventDispatcher()->removeEventListener(_listener);
-	Sprite::onExit();	// µ÷ÓÃ¸¸ÀàonExitÀ´ÍË³ö
+	Sprite::onExit();	// è°ƒç”¨çˆ¶ç±»onExitæ¥é€€å‡º
 }
 
 void JoystickPad::update(float dt) {
-	if (this->_isTouching) {			// Èç¹ûÔÚ´¥ÃşÖĞ£¬ÊµÊ±¸üĞÂÖ÷»úµÄ·½ÏòÏòÁ¿
+	if (this->_isTouching) {			// å¦‚æœåœ¨è§¦æ‘¸ä¸­ï¼Œå®æ—¶æ›´æ–°ä¸»æœºçš„æ–¹å‘å‘é‡
 		this->_mainTank->_direction = _directionVector;
-		this->_mainTank->move(dt);		// ÒÆ¶¯Ó¢ĞÛ
+		this->_mainTank->move(dt);		// ç§»åŠ¨è‹±é›„
 	}
 }
 
 bool JoystickPad::touchBegin(Touch* pt, Event* pe) {
-	float distanceSQ = ccpDistanceSQ(pt->getLocation(), this->getPosition());	// Á½µã¼ä¾àÀëµÄÆ½·½
-	if (distanceSQ <= this->_radius * this->_radius) {		// ´¥ÃşµãÔÚÒ¡¸ËÉÏÃæ
-		this->updateDirectionFoTouchLocation(pt->getLocation());	// ¸üĞÂÓ¢ĞÛµÄ·½ÏòÏòÁ¿
-		this->_isTouching = true;	// ¸üĞÂ_isHeld±êÖ¾Îªtrue£¬±íÊ¾´¥Ãşµ½ÁËÒ¡¸Ë
-		return true;				// ´«µİ´¥ÃşÊÂ¼ş
+	float distanceSQ = ccpDistanceSQ(pt->getLocation(), this->getPosition());	// ä¸¤ç‚¹é—´è·ç¦»çš„å¹³æ–¹
+	if (distanceSQ <= this->_radius * this->_radius) {		// è§¦æ‘¸ç‚¹åœ¨æ‘‡æ†ä¸Šé¢
+		this->updateDirectionFoTouchLocation(pt->getLocation());	// æ›´æ–°è‹±é›„çš„æ–¹å‘å‘é‡
+		this->_isTouching = true;	// æ›´æ–°_isHeldæ ‡å¿—ä¸ºtrueï¼Œè¡¨ç¤ºè§¦æ‘¸åˆ°äº†æ‘‡æ†
+		return true;				// ä¼ é€’è§¦æ‘¸äº‹ä»¶
 	}
 	return false;
 }
 
-// ÔÚÒ»´Î³¤°²´¥ÃşÖĞ£¬Ëü»á±»µ÷ÓÃ¶à´Î
+// åœ¨ä¸€æ¬¡é•¿å®‰è§¦æ‘¸ä¸­ï¼Œå®ƒä¼šè¢«è°ƒç”¨å¤šæ¬¡
 void JoystickPad::touchMoved(Touch* pt, Event* pe) {
-	this->updateDirectionFoTouchLocation(pt->getLocation());	// Ã¿´Î´¥ÃşÒÆ¶¯¶¼¸üĞÂÒ»ÏÂÓ¢ĞÛµÄ·½ÏòÏòÁ¿
+	this->updateDirectionFoTouchLocation(pt->getLocation());	// æ¯æ¬¡è§¦æ‘¸ç§»åŠ¨éƒ½æ›´æ–°ä¸€ä¸‹è‹±é›„çš„æ–¹å‘å‘é‡
 }
 
 void JoystickPad::touchEnded(Touch* pt, Event* pe) {
-	this->_directionVector = Vect::ZERO;		// ÖØÔØÓ¢ĞÛ·½ÏòÏòÁ¿
-	this->_isTouching = false;					// Ò»´Î´¥Ãş½áÊø
+	this->_directionVector = Vect::ZERO;		// é‡è½½è‹±é›„æ–¹å‘å‘é‡
+	this->_isTouching = false;					// ä¸€æ¬¡è§¦æ‘¸ç»“æŸ
 }
 
 void JoystickPad::updateDirectionFoTouchLocation(Point point) {
-	float radians = (point - this->getPosition()).getAngle();	// Çó»¡¶Èradians
-	float degrees = -1 * CC_RADIANS_TO_DEGREES(radians);		// ½«»¡¶È×ª»»Îª½Ç¶È
+	float radians = (point - this->getPosition()).getAngle();	// æ±‚å¼§åº¦radians
+	float degrees = -1 * CC_RADIANS_TO_DEGREES(radians);		// å°†å¼§åº¦è½¬æ¢ä¸ºè§’åº¦
 
-	// cocos2dx µÄ½Ç¶ÈÊÇË³Ê±ÕëÎªÕı·½Ïò
+	// cocos2dx çš„è§’åº¦æ˜¯é¡ºæ—¶é’ˆä¸ºæ­£æ–¹å‘
 
-	if (degrees > -45.0f && degrees <= 45.0f) {				// ÏòÓÒ
+	if (degrees > -45.0f && degrees <= 45.0f) {				// å‘å³
 		this->_directionVector = Vec2(1, 0);
-	} else if (degrees > -135.0f && degrees <= -45.0f) {	// ÏòÉÏ
+	} else if (degrees > -135.0f && degrees <= -45.0f) {	// å‘ä¸Š
 		this->_directionVector = Vec2(0, 1);
-	} else if (degrees <= -135.0f || degrees > 135.0f) {	// Ïò×ó
+	} else if (degrees <= -135.0f || degrees > 135.0f) {	// å‘å·¦
 		this->_directionVector = Vec2(-1, 0);
-	} else if (degrees > 45.0f && degrees <= 135.0f) {		// ÏòÏÂ
+	} else if (degrees > 45.0f && degrees <= 135.0f) {		// å‘ä¸‹
 		this->_directionVector = Vec2(0, -1);
 	}
 
-	// Ö´ĞĞ ĞĞ×ß¶¯×÷£¨°´ÉÏ·½Ïò¼ü¾Í»áĞĞ×ß£©
+	// æ‰§è¡Œ è¡Œèµ°åŠ¨ä½œï¼ˆæŒ‰ä¸Šæ–¹å‘é”®å°±ä¼šè¡Œèµ°ï¼‰
 	this->_mainTank->_direction = this->_directionVector;
 }
-
