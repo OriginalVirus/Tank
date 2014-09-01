@@ -4,17 +4,20 @@ USING_NS_CC;
 
 #define EnemyMaxCount 30
 
-class EnemyTankLayer :
-	public Layer
+class EnemyTankLayer :public Layer
 {
 public:
-	EnemyTankLayer(void);
-	virtual ~EnemyTankLayer(void);
+	virtual bool init();
+	CREATE_FUNC(EnemyTankLayer);
+	EnemyTankLayer(void){}
+	virtual ~EnemyTankLayer(void){}
 public:
 	int _enemyCurrenCount;
-	int _enemy1RemainCount;	// »¹¿ÉÒÔ²úÉúµĞ»ú1ÀàĞÍµÄÊıÁ¿
+	int _enemy1RemainCount;	// è¿˜å¯ä»¥äº§ç”Ÿæ•Œæœº1ç±»å‹çš„æ•°é‡
 	int _enemy2RemainCount;	// 
 	int _enemy3RemainCount;
-	int _enemy4RemainCount;
+	void addEnemy1Tank(float t);
+	void addEnemy2Tank(float t);
+	void addEnemy3Tank(float t);
+	Size _size;
 };
-
