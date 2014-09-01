@@ -20,4 +20,3 @@ public:
 	virtual void die();
 
 };
-
