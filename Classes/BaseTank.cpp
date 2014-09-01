@@ -5,7 +5,7 @@ void BaseTank::move(float t){
 	Size _size = Director::getInstance()->getVisibleSize();
 	Size _tankSize = this->getContentSize();
 	this->setPosition(this->getPosition() + _direction * t * _speed);
-	//·ÀÖ¹Ì¹¿ËÒÆ¶¯³öÆÁÄ»
+	//é˜²æ­¢å¦å…‹ç§»åŠ¨å‡ºå±å¹•
 	if (this->getPositionX() < 0 || this->getPositionX() > _size.width)
 	{
 		this->setPosition(this->getPositionX(),_tankSize.height/2);
@@ -14,12 +14,12 @@ void BaseTank::move(float t){
 	{
 		this->setPosition(this->getPositionY(),_tankSize.height/2);
 	}
-
-	
 }
+
 void BaseTank::fire(float t){
 
 }
+
 void BaseTank::hurtWithDemage(int demage){
 	this->_hp -= demage;
 	if (_hp < 0)
@@ -27,8 +27,8 @@ void BaseTank::hurtWithDemage(int demage){
 		_hp = 0;
 		isDie = true;		
 	}
-	
 }
+
 void BaseTank::die(){
 	this->removeFromParentAndCleanup(true);
 }
