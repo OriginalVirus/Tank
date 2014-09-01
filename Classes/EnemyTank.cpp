@@ -7,6 +7,7 @@ bool EnemyTank::init(){
 	{
 		return false;
 	}
+	isDie = false;
 	this->schedule(schedule_selector(EnemyTank::fire),2);
 	return true;
 	
