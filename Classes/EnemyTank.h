@@ -3,14 +3,15 @@
 
 #define EnemyMaxCount 20;
 
-class EnemyTank :public BaseTank
-{
+class EnemyTank :public BaseTank {
 public:
-	virtual bool init();
-	CREATE_FUNC(EnemyTank);
-	void ai(float dt);
+	virtual bool init(std::string path);
+	void ai(float);
 	virtual void fire(float t);
+	virtual void killed() = 0;
 private:
 	int _count;
+	float _nextDecisionTime;	// 下次决策时间
+	float _decisionTimeCounter;
 };
 

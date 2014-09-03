@@ -1,12 +1,13 @@
 #pragma once
 #include "cocos2d.h"
-#include "MapLayer.h"
 USING_NS_CC;
 
+class MapLayer;
+
 typedef enum {
-	NORMAL = 0,
-	GOLD,
-	HOME
+	kNORMAL = 0,
+	kGOLD,
+	kHOME
 } BrickType;
 
 typedef enum {

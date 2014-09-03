@@ -2,9 +2,7 @@
 #include "cocos2d.h"
 using namespace cocos2d;
 
-
-class BaseTank :public Sprite
-{
+class BaseTank :public Sprite {
 public: 
 	bool isDie;
 	int _hp;
@@ -18,5 +16,5 @@ public:
 	virtual void fire(float t);
 	virtual void hurtWithDemage(int demage);
 	virtual void die();
-
+	bool isDesiredPositionValid();
 };

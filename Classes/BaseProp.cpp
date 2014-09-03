@@ -12,5 +12,12 @@ bool BaseProp::initWithFile(std::string name ){
 	if (!Sprite::initWithFile(name)) {
 		return false;
 	}
+
+	scheduleToDisappear();
+
 	return true;
+}
+
+void BaseProp::disappear(float t) {
+	this->removeFromParentAndCleanup(true);
 }

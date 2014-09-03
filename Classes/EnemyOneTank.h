@@ -6,4 +6,6 @@ class EnemyOneTank:public EnemyTank{
 public:
 	virtual bool init();
 	CREATE_FUNC(EnemyOneTank);
+	virtual void die();
+	void killed();
 };

@@ -1,11 +1,20 @@
 #include "EnemyOneTank.h"
 #include "BaseTank.h"
+#include "GameScene.h"
 
 bool EnemyOneTank::init(){
-	if (!Sprite::initWithFile("enemy1D.png")) return false;
-	
+	if (!EnemyTank::init("onetank.png")) return false;
+
 	_hp = 1;
-	_speed = 8;
+	_speed = 80;
 	
 	return true;
+}
+
+void EnemyOneTank::die() {
+	EnemyTank::die();
+}
+
+void EnemyOneTank::killed() {
+	GameScene::getInstance()->_killTank1 += 1;
 }

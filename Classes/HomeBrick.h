@@ -1,10 +1,11 @@
 #pragma once
-#include "brick.h"
-class HomeBrick :
-	public Brick
-{
+#include "Brick.h"
+class HomeBrick {
 public:
-	HomeBrick(void);
-	virtual ~HomeBrick(void);
+	Brick* _brick11;
+	Brick* _brick12;
+	Brick* _brick25;
+	Brick* _brick26;
+	Rect getBoundingBox();
 };
 

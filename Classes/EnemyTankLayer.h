@@ -2,10 +2,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-#define EnemyMaxCount 30
-
-class EnemyTankLayer :public Layer
-{
+class EnemyTankLayer :public Layer {
 public:
 	virtual bool init();
 	CREATE_FUNC(EnemyTankLayer);

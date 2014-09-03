@@ -1,5 +1,5 @@
 #include "Brick.h"
-
+#include "MapLayer.h"
 
 Brick::Brick(BrickType type, Vec2 tilePoint, Sprite* tile) {
 	this->_type = type;

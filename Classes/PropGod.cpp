@@ -1,6 +1,7 @@
 #include "propGod.h"
 #include "BaseProp.h"
 #include "Home.h"
+#include "GameScene.h"
 
 bool PropGod::init(){
 	if (!BaseProp::initWithFile("star.png"))
@@ -27,4 +28,8 @@ BaseProp * PropGod::create(){
 
  void PropGod::effect(Ref*sender){
 	 //调用HOME 加强金钟罩的方法。
+	 GameScene::getInstance()->_mapLayer->_home->strengthen();
  }
+  void PropGod:: scheduleToDisappear(){
+	  this->scheduleOnce(schedule_selector(PropGod::disappear), 60);
+  }

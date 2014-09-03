@@ -7,8 +7,9 @@ using namespace cocos2d;
 class PropGod :public BaseProp{
 public: 
 	virtual bool init();
-	virtual BaseProp * create();
+	static BaseProp * create();
 	virtual void effect(Ref*sender);
+	virtual void scheduleToDisappear();
 };
 
 #endif

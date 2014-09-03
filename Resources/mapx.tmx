@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tile" tilewidth="16" tileheight="16">
+  <image source="tile.png" width="224" height="32"/>
+ </tileset>
+ <layer name="bricksLayer" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBiZgBGK6cUftXfU3lF7qWcvIUBtc0kND2YoxsUn1nyYPnrZi24fIUBIP73ib6inZ2qle1ray4iGKbGXFADSzw3EPFQwi1R7JYFYigJ7AX4sATs=
+  </data>
+ </layer>
+</map>

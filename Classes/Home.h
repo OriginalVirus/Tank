@@ -1,18 +1,15 @@
 #pragma once
 #include "cocos2d.h"
-#include "Brick.h"
+#include "HomeBrick.h"
 USING_NS_CC;
 
 class Home : public Node {
 public:
-	Home(void);
-	virtual ~Home(void);
+	void strengthen();		// 加强成金砖围墙
 public:
-	void strengthen();	// 加强成金砖围墙
-private:
-	void recover();		// 回复到普通围墙
+	void recover(float);	// 回复到普通围墙
 public:
-	Vector<Brick*> _bricks;
-	Brick* _homeBrick;
+	Vector<Brick*> *_bricks;
+	HomeBrick* _homeBrick;
 };
 
