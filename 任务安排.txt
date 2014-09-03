@@ -6,7 +6,7 @@
   2. 碰撞检测的实现        CollisionDelegate  <-- GameScene
   3. 子弹的实现            Bullet
   
-张钟彬：
+张忠彬：
   1. 坦克基类的编写        BaseTank
   2. 敌机坦克基类的编写    EnemyTank
   3. 敌机坦克子类的编写    EnemyTank1,2,3,4
