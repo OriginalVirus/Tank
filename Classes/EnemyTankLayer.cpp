@@ -9,7 +9,7 @@
 #define BORNPLACE2 Vec2(16,_size.height - 16)
 #define BORNPLACE3 Vec2(_size.width - 16, _size.height - 16)
 
-bool EnemyTankLayer::init(){
+bool EnemyTankLayer::init() {
 	if (!Layer::init()) return false;
 	
 	_size = Director::getInstance()->getVisibleSize();

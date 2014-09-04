@@ -17,32 +17,8 @@ void EnemyTwoTank::hurtWithDemage(int demage){
 	if (_hp == 2)
 	{
 		changeColor(0);
-		/*
-		this->setTexture("enemy2U.png");
-		if (_direction == Vect(0,-1))
-		{
-		this->setRotation(180);
-		}else if (_direction == Vect(1,0))
-		{
-		this->setRotation(90);
-		}else 
-		{
-		this->setRotation(270);
-		}*/
 	} else if (_hp == 1) {
 		changeColor(1);
-		/*
-		this->setTexture("enemy1U.png");
-		if (_direction == Vect(0,-1))
-		{
-		this->setRotation(180);
-		}else if (_direction == Vect(1,0))
-		{
-		this->setRotation(90);
-		}else 
-		{
-		this->setRotation(270);
-		}*/
 	} else {
 		this->_hp == 0;
 		this->die();
@@ -50,7 +26,8 @@ void EnemyTwoTank::hurtWithDemage(int demage){
 }
 
 void EnemyTwoTank::die() {
-	GameScene::getInstance()->_killTank2 ++;
+	killed();
+	EnemyTank::die();
 }
 
 void EnemyTwoTank::changeColor(int index) {
@@ -62,5 +39,5 @@ void EnemyTwoTank::changeColor(int index) {
 }
 
 void EnemyTwoTank::killed() {
-	GameScene::getInstance()->_killTank1 += 1;
+	GameScene::getInstance()->_killTank2 ++;
 }

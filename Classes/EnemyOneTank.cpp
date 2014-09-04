@@ -12,9 +12,10 @@ bool EnemyOneTank::init(){
 }
 
 void EnemyOneTank::die() {
+	killed();
 	EnemyTank::die();
 }
 
 void EnemyOneTank::killed() {
-	GameScene::getInstance()->_killTank1 += 1;
+	GameScene::getInstance()->_killTank1 ++;
 }

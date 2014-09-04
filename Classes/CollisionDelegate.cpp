@@ -154,21 +154,25 @@ void CollisionDelegate::detectOfBulletsAndHomeBrick(Vector<Node *> enemyBullets,
 				auto bullet = static_cast<Bullet *> (enemyBullets.at(i));
 				auto box = bullet->getBoundingBox();
 				if (box.intersectsRect(homeBrick->_brick11->_tile->getBoundingBox())) {
+					bullet->die();
 					GameScene::getInstance()->GameOver();
 					SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 					return;
 				}
 				if (box.intersectsRect(homeBrick->_brick12->_tile->getBoundingBox())) {
+					bullet->die();
 					GameScene::getInstance()->GameOver();
 					SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 					return;
 				}
 				if (box.intersectsRect(homeBrick->_brick25->_tile->getBoundingBox())) {
+					bullet->die();
 					GameScene::getInstance()->GameOver();
 					SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 					return;
 				}
 				if (box.intersectsRect(homeBrick->_brick26->_tile->getBoundingBox())) {
+					bullet->die();
 					GameScene::getInstance()->GameOver();
 					SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 					return;
@@ -177,21 +181,25 @@ void CollisionDelegate::detectOfBulletsAndHomeBrick(Vector<Node *> enemyBullets,
 
 			auto box = mainBullet->getBoundingBox();
 			if (box.intersectsRect(homeBrick->_brick11->_tile->getBoundingBox())) {
+				mainBullet->die();
 				GameScene::getInstance()->GameOver();
 				SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 				return;
 			}
 			if (box.intersectsRect(homeBrick->_brick12->_tile->getBoundingBox())) {
+				mainBullet->die();
 				GameScene::getInstance()->GameOver();
 				SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 				return;
 			}
 			if (box.intersectsRect(homeBrick->_brick25->_tile->getBoundingBox())) {
+				mainBullet->die();
 				GameScene::getInstance()->GameOver();
 				SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 				return;
 			}
 			if (box.intersectsRect(homeBrick->_brick26->_tile->getBoundingBox())) {
+				mainBullet->die();
 				GameScene::getInstance()->GameOver();
 				SimpleAudioEngine::getInstance()->playEffect("boom.wav");
 				return;

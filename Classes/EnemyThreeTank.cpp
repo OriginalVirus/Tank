@@ -31,9 +31,9 @@ void EnemyThreeTank::die(){
 
 	EnemyTank::die();
 
-	GameScene::getInstance()->_killTank3 ++;
+	killed();
 }
 
 void EnemyThreeTank::killed() {
-	GameScene::getInstance()->_killTank3 += 1;
+	GameScene::getInstance()->_killTank3 ++;
 }
